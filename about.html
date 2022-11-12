@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap"
+    rel="stylesheet">
+  <title>Document</title>
+</head>
+
+<body>
+  <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
+    <div class="flex antialiased text-gray-900 bg-amber-200 dark:bg-dark dark:text-light">
+      <!-- Loading screen -->
+      <div x-ref="loading"
+        class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-blue-600">
+        Loading.....
+      </div>
+
+      <!-- Static sidebar for desktop -->
+      <div x-transition:enter="transform transition-transform duration-500" x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-00"
+        x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen"
+        class="fixed inset-y-0 z-10 overflow-hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col ">
+        <div class="z-10 flex flex-col flex-grow pt-5 overflow-y-auto bg-fuchsia-800">
+          <!-- close sidebar for desktop -->
+          <div class="flex items-center justify-end flex-shrink-0 px-4">
+            <button @click="isSidebarOpen = false" class="p-1 rounded-lg focus:outline-none focus:ring ">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-white"
+                aria-hidden="true">
+                <path fill-rule="evenodd"
+                  d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
+                  clip-rule="evenodd" />
+              </svg>
+              <span class="sr-only">Close sidebar</span>
+          </div>
+
+          <div class="flex flex-col flex-1 mt-5" aria-labelledby="accordion-example-heading-2">
+            <nav class="flex-1 px-2 pb-4 space-y-1">
+              <a href="home.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                  <path
+                    d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                </svg>
+                Home
+              </a>
+
+              <a href="about.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path fill-rule="evenodd"
+                    d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                    clip-rule="evenodd" />
+                </svg>
+                About Me
+              </a>
+
+              <a href="oc.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
+                </svg>
+                Original Character
+              </a>
+
+              <a href="#"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" />
+                  <path fill-rule="evenodd"
+                    d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.913 9H3.087zm6.163 3.75A.75.75 0 0110 12h4a.75.75 0 010 1.5h-4a.75.75 0 01-.75-.75z"
+                    clip-rule="evenodd" />
+                </svg>
+                Showcase Work
+              </a>
+
+              <a href="commission.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25h3.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                </svg>
+                Commissions
+              </a>
+
+              <a href="#"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path fill-rule="evenodd"
+                    d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h3.844z"
+                    clip-rule="evenodd" />
+                </svg>
+                Contact
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col w-screen h-full justify-center items-center overflow-x-hidden overflow-y-auto">
+        <main>
+          <button @click="isSidebarOpen = true"
+            class="fixed p-2 text-white bg-fuchsia-800 rounded-lg hover:bg-rose-400 top-5 left-5">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+            <span class="sr-only">Open menu</span>
+          </button>
+
+          <div class="flex flex-col w-screen justify-center items-center mt-16 mb-8">
+            <div class="flex flex-col w-3/4 pt-8 py-16">
+              <div class="flex flex-row items-center">
+                <div class="w-1/3 bg-none">
+                  <img src="IMG20220211162236.png" alt="gato" class="rounded-tl-xl">
+                </div>
+
+                <div class="w-2/3 bg-rose-400 py-12 rounded-tr-xl">
+                  <div class="w-full flex items-center justify-center content-center">
+                    <div
+                      class="flex flex-col w-4/5 items-center content-center bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 py-3 justify-center">
+                      <h3 class="font-bold text-xl">About Me!</h3>
+                      <div class="flex flex-col w-full my-1 ">
+                        <div class="flex flex-col divide-y-1">
+                          <div class="flex flex-row text-lg justify-evenly">
+                            <div class="flex flex-row w-5/12">
+                              <span class="text-left w-1/2 font-semibold">Name</span>
+                              <span class="text-right w-1/2 font-normal">Meow / Jess</span>
+                            </div>
+                            <div class="flex flex-row w-5/12">
+                              <span class="text-left w-1/2 font-semibold">Penname</span>
+                              <span class="text-right w-1/2 font-normal">7ess</span>
+                            </div>
+                          </div>
+                          <div class="flex flex-row text-lg justify-evenly">
+                            <div class="flex flex-row w-5/12">
+                              <span class="text-left w-1/2 font-semibold">Age</span>
+                              <span class="text-right w-1/2 font-normal">19</span>
+                            </div>
+                            <div class="flex flex-row w-5/12">
+                              <span class="text-left w-1/2 font-semibold">B.O.D.</span>
+                              <span class="text-right w-1/2 font-normal">23 April 2003 </span>
+                            </div>
+                          </div>
+                          <div class="flex flex-row text-lg justify-evenly">
+                            <div class="flex flex-row w-5/12">
+                              <span class="text-left w-1/2 font-semibold">Gender</span>
+                              <span class="text-right w-1/2 font-normal">Female (Bi)</span>
+                            </div>
+                            <div class="flex flex-row w-5/12">
+
+                              <span class="text-left w-1/2 font-semibold">Pronouns</span>
+                              <span class="text-right w-1/2 font-normal">She / They</span>
+                            </div>
+                          </div>
+
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div Class="flex flex-col w-scren text-center content-center jusify-center items-center">
+                      <div class=" flex flex-col w-4/5">
+                        <h3 class="font-bold text-xl my-2">Hobby</h3>
+                        <div
+                          class=" flex flex-row overflow-x-auto bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 justify-center overflow-y-hidden">
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300  ">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"
+                              class="w-9 h-9">
+                              <path fill-rule="evenodd"
+                                d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm14.25 6a.75.75 0 01-.22.53l-2.25 2.25a.75.75 0 11-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 111.06-1.06l2.25 2.25c.141.14.22.331.22.53zm-10.28-.53a.75.75 0 000 1.06l2.25 2.25a.75.75 0 101.06-1.06L8.56 12l1.72-1.72a.75.75 0 10-1.06-1.06l-2.25 2.25z"
+                                clip-rule="evenodd" />
+                            </svg>
+                            <span>Coding</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M9.38 21.646A9.985 9.985 0 0 0 12 22l.141-.001a2.998 2.998 0 0 0 2.515-1.425c.542-.876.6-1.953.153-2.88l-.198-.415c-.453-.942-.097-1.796.388-2.281.485-.485 1.341-.841 2.28-.388h.001l.413.199a2.99 2.99 0 0 0 2.881-.153A2.997 2.997 0 0 0 22 12.141a9.926 9.926 0 0 0-.353-2.76c-1.038-3.827-4.353-6.754-8.246-7.285-3.149-.427-6.241.602-8.471 2.833S1.666 10.247 2.096 13.4c.53 3.894 3.458 7.208 7.284 8.246zM15.5 6a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zm-5-1a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3zM9 15.506a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-2.5-6.5a1.5 1.5 0 1 1-.001 3.001A1.5 1.5 0 0 1 6.5 9.006z">
+                              </path>
+                            </svg>
+                            <span>Drawing</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M21.986 9.74a3.193 3.193 0 0 0-.008-.088A5.003 5.003 0 0 0 17 5H7a4.97 4.97 0 0 0-4.987 4.737c-.01.079-.013.161-.013.253v6.51c0 .925.373 1.828 1.022 2.476A3.524 3.524 0 0 0 5.5 20c1.8 0 2.504-1 3.5-3 .146-.292.992-2 3-2 1.996 0 2.853 1.707 3 2 1.004 2 1.7 3 3.5 3 .925 0 1.828-.373 2.476-1.022A3.524 3.524 0 0 0 22 16.5V10c0-.095-.004-.18-.014-.26zM7 12.031a2 2 0 1 1-.001-3.999A2 2 0 0 1 7 12.031zm10-5a1 1 0 1 1 0 2 1 1 0 1 1 0-2zm-2 4a1 1 0 1 1 0-2 1 1 0 1 1 0 2zm2 2a1 1 0 1 1 0-2 1 1 0 1 1 0 2zm2-2a1 1 0 1 1 0-2 1 1 0 1 1 0 2z">
+                              </path>
+                            </svg>
+                            <span>Gaming</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M 11.5 0 C 10.119 0 9 1.119 9 2.5 L 9 4 L 5 4 C 3.895 4 3 4.895 3 6 L 3 9 C 3 9.552 3.448 10 4 10 L 4.3574219 10 C 5.6654219 10 6.8553281 10.941188 6.9863281 12.242188 C 7.1363281 13.739187 5.966 15 4.5 15 L 4 15 C 3.448 15 3 15.448 3 16 L 3 19 C 3 20.105 3.895 21 5 21 L 8 21 C 8.552 21 9 20.552 9 20 L 9 19.642578 C 9 18.334578 9.9411875 17.144672 11.242188 17.013672 C 12.739187 16.863672 14 18.034 14 19.5 L 14 20 C 14 20.552 14.448 21 15 21 L 18 21 C 19.105 21 20 20.105 20 19 L 20 15 L 21.5 15 C 22.881 15 24 13.881 24 12.5 C 24 11.119 22.881 10 21.5 10 L 20 10 L 20 6 C 20 4.895 19.105 4 18 4 L 14 4 L 14 2.5 C 14 1.119 12.881 0 11.5 0 z">
+                              </path>
+                            </svg>
+                            </svg>Crossword</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M17 14a5 5 0 0 0 2.71-.81L20 13a3.16 3.16 0 0 0 .45-.37l.21-.2a4.48 4.48 0 0 0 .48-.58l.06-.08a4.28 4.28 0 0 0 .41-.76 1.57 1.57 0 0 0 .09-.23 4.21 4.21 0 0 0 .2-.63l.06-.25A5.5 5.5 0 0 0 22 9V2l-3 3h-4l-3-3v7a5 5 0 0 0 5 5zm2-7a1 1 0 1 1-1 1 1 1 0 0 1 1-1zm-4 0a1 1 0 1 1-1 1 1 1 0 0 1 1-1z">
+                              </path>
+                              <path
+                                d="M11 22v-5H8v5H5V11.9a3.49 3.49 0 0 1-2.48-1.64A3.59 3.59 0 0 1 2 8.5 3.65 3.65 0 0 1 6 5a1.89 1.89 0 0 0 2-2 1 1 0 0 1 1-1 1 1 0 0 1 1 1 3.89 3.89 0 0 1-4 4C4.19 7 4 8.16 4 8.51S4.18 10 6 10h5.09A6 6 0 0 0 19 14.65V22h-3v-5h-2v5z">
+                              </path>
+                            </svg>
+                            <span>Gato.</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class=" flex flex-col w-4/5">
+                        <h3 class="font-bold text-xl my-2">Skills</h3>
+                        <div
+                          class=" flex flex-row overflow-x-auto bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 justify-center overflow-y-hidden">
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M12.427 13.011c.037-.667.363-1.254.856-1.671a2.855 2.855 0 0 1 1.844-.66c.71 0 1.36.25 1.845.66.492.417.819 1.005.856 1.671.038.686-.237 1.323-.721 1.795a2.829 2.829 0 0 1-1.979.782 2.83 2.83 0 0 1-1.981-.782c-.483-.472-.759-1.109-.72-1.795z">
+                              </path>
+                              <path
+                                d="M8.124 14.361c.005.26.089.767.213 1.164a6.156 6.156 0 0 0 1.328 2.299 6.833 6.833 0 0 0 2.323 1.667 7.465 7.465 0 0 0 3.05.635 7.495 7.495 0 0 0 3.051-.645 6.913 6.913 0 0 0 2.321-1.675 6.196 6.196 0 0 0 1.326-2.303 5.76 5.76 0 0 0 .25-1.285 5.942 5.942 0 0 0-.888-3.594 6.496 6.496 0 0 0-1.545-1.703l.001-.001-6.249-4.799-.016-.014c-.411-.314-1.101-.313-1.551.002-.457.319-.508.846-.104 1.18l-.001.001 2.606 2.121-7.943.009h-.012c-.656 0-1.287.432-1.412.976-.128.555.318 1.015 1.001 1.017l-.001.003 4.027-.008-7.188 5.516-.027.021c-.677.519-.896 1.382-.47 1.929.434.556 1.354.556 2.04.002l3.922-3.209c.001 0-.056.433-.052.694zm10.078 1.45c-.808.824-1.938 1.291-3.163 1.293-1.226.002-2.356-.461-3.165-1.283a3.739 3.739 0 0 1-.864-1.352 3.503 3.503 0 0 1-.199-1.511c.044-.505.193-.987.434-1.422.236-.429.562-.815.962-1.144a4.477 4.477 0 0 1 2.832-.988 4.478 4.478 0 0 1 2.832.98c.399.326.725.711.961 1.139.24.436.39.916.434 1.421a3.52 3.52 0 0 1-.198 1.511 3.804 3.804 0 0 1-.866 1.356z">
+                              </path>
+                            </svg>
+                            <span>Blender</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M 3 2 L 5 20 L 11.992188 22 L 19 20 L 21 2 Z M 16.726563 10.347656 L 16.34375 16.589844 L 12.027344 18 L 7.710938 16.589844 L 7.546875 13.605469 L 9.734375 13.605469 L 9.789063 14.960938 L 12.027344 15.722656 L 14.269531 14.960938 L 14.433594 12.519531 L 9.625 12.519531 L 9.515625 10.347656 L 14.539063 10.347656 L 14.703125 8.175781 L 7.164063 8.175781 L 7 6.007813 L 17 6.007813 Z">
+                              </path>
+                            </svg>
+                            <span>CSS</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M 21 2 L 3 2 L 5 20 L 12 22 L 19 20 Z M 16.824219 8.082031 L 9.167969 8.082031 L 9.351563 10.261719 L 16.640625 10.261719 L 16.09375 16.699219 L 12 18.003906 L 11.960938 17.988281 L 7.914063 16.699219 L 7.691406 14.074219 L 9.675781 14.074219 L 9.761719 15.09375 L 12.023438 15.59375 L 14.242188 15.09375 L 14.480469 12.339844 L 7.542969 12.339844 L 7.007813 6 L 17.003906 6 Z">
+                              </path>
+                            </svg>
+                            <span>HTML</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M 8.0175781 1.015625 C 7.2760351 0.95908141 6.5400486 1.0850468 5.8945312 1.4589844 C 5.0338413 1.9575677 4.4726627 2.8140224 4.1835938 3.7792969 C 3.8945251 4.7445712 3.843622 5.8448865 3.9667969 7.0429688 C 3.9809453 7.1805856 4.0045725 7.3246099 4.0234375 7.4648438 C 3.9530227 7.495364 3.8775978 7.523322 3.8085938 7.5546875 C 2.7260697 8.0467438 1.813209 8.6418477 1.1328125 9.3730469 C 0.45241597 10.104246 0 11.012402 0 12 C 0 12.987598 0.45241597 13.895754 1.1328125 14.626953 C 1.813209 15.358152 2.7260698 15.953256 3.8085938 16.445312 C 3.8775978 16.476678 3.9530227 16.504636 4.0234375 16.535156 C 4.0045652 16.675389 3.9809525 16.819415 3.9667969 16.957031 C 3.8435593 18.155107 3.894576 19.255414 4.1835938 20.220703 C 4.4726121 21.185993 5.0319143 22.042388 5.8925781 22.541016 C 6.7532418 23.039645 7.7746919 23.098544 8.7558594 22.869141 C 9.7370269 22.639738 10.717253 22.138379 11.695312 21.435547 C 11.796252 21.363012 11.897163 21.278065 11.998047 21.201172 C 12.099633 21.27864 12.201091 21.362498 12.302734 21.435547 C 13.280757 22.13843 14.261033 22.641639 15.242188 22.871094 C 16.223343 23.100548 17.244779 23.0396 18.105469 22.541016 C 18.966159 22.042433 19.527337 21.185977 19.816406 20.220703 C 20.105475 19.255429 20.156378 18.155113 20.033203 16.957031 C 20.019016 16.819041 19.993538 16.675778 19.974609 16.535156 C 20.045581 16.504406 20.121868 16.476921 20.191406 16.445312 C 21.27393 15.953257 22.186791 15.358152 22.867188 14.626953 C 23.547584 13.895754 24 12.987598 24 12 C 24 11.012402 23.547584 10.104246 22.867188 9.3730469 C 22.186791 8.6418477 21.27393 8.0467438 20.191406 7.5546875 C 20.122402 7.523322 20.046977 7.495364 19.976562 7.4648438 C 19.995435 7.3246109 20.019048 7.1805848 20.033203 7.0429688 C 20.156441 5.8448928 20.105424 4.7445862 19.816406 3.7792969 C 19.527388 2.8140075 18.968086 1.9576128 18.107422 1.4589844 C 17.246759 0.960356 16.225309 0.90145637 15.244141 1.1308594 C 14.262974 1.3602625 13.282747 1.8616209 12.304688 2.5644531 C 12.20334 2.6372811 12.101291 2.7216067 12 2.7988281 C 11.898952 2.7217938 11.79837 2.6371146 11.697266 2.5644531 C 10.719243 1.8615698 9.738968 1.3603139 8.7578125 1.1308594 C 8.5125236 1.0734957 8.2647591 1.0344729 8.0175781 1.015625 z M 7.4921875 3.0058594 C 7.7223831 2.9842669 7.9872408 3.0047998 8.3007812 3.078125 C 8.9106129 3.220741 9.6645617 3.5807085 10.462891 4.1445312 C 9.8349553 4.7654743 9.219274 5.4598005 8.6269531 6.2285156 C 7.6813357 6.3600757 6.7888745 6.5510748 5.953125 6.7871094 C 5.85696 5.8010795 5.9200413 4.9596606 6.1015625 4.3535156 C 6.2863132 3.7365846 6.5557543 3.3868324 6.8964844 3.1894531 C 7.0668494 3.0907635 7.2619919 3.0274519 7.4921875 3.0058594 z M 16.134766 3.0058594 C 16.53816 2.9704224 16.847976 3.0414057 17.103516 3.1894531 C 17.444236 3.3868502 17.715673 3.7365753 17.900391 4.3535156 C 18.08188 4.9596688 18.145043 5.8010878 18.048828 6.7871094 C 17.212566 6.5508334 16.319346 6.3601705 15.373047 6.2285156 C 14.780955 5.460029 14.166756 4.7653451 13.539062 4.1445312 C 14.336909 3.5813127 15.089729 3.2206275 15.699219 3.078125 C 15.855991 3.0414707 16.000301 3.0176717 16.134766 3.0058594 z M 12 5.453125 C 12.1786 5.6264724 12.356566 5.822065 12.535156 6.0117188 C 12.356457 6.0080175 12.180701 6 12 6 C 11.819299 6 11.643543 6.0080175 11.464844 6.0117188 C 11.643444 5.8220743 11.821391 5.626463 12 5.453125 z M 12 8 C 12.788007 8 13.548766 8.0481275 14.285156 8.1230469 C 14.700857 8.7054132 15.10401 9.3258087 15.484375 9.9824219 C 15.875375 10.657394 16.217136 11.33197 16.521484 12 C 16.217102 12.668014 15.875411 13.34458 15.484375 14.019531 C 15.103975 14.676124 14.700887 15.294609 14.285156 15.876953 C 13.548766 15.951873 12.788007 16 12 16 C 11.211993 16 10.451234 15.951873 9.7148438 15.876953 C 9.2991434 15.294587 8.8959901 14.676144 8.515625 14.019531 C 8.1246248 13.344559 7.7828635 12.66803 7.4785156 12 C 7.7828984 11.331986 8.1245894 10.655421 8.515625 9.9804688 C 8.8960244 9.3238755 9.299113 8.7053914 9.7148438 8.1230469 C 10.451234 8.0481275 11.211993 8 12 8 z M 7.0175781 8.5957031 C 6.9403709 8.7239401 6.8608676 8.8478332 6.7851562 8.9785156 C 6.6949605 9.1341991 6.6134705 9.2895259 6.5273438 9.4453125 C 6.4589365 9.2180213 6.3847285 8.9880962 6.328125 8.7675781 C 6.5459067 8.7038112 6.7874945 8.6524909 7.0175781 8.5957031 z M 16.982422 8.5976562 C 17.212346 8.6544112 17.454237 8.7038533 17.671875 8.7675781 C 17.61526 8.9880933 17.541075 9.2180249 17.472656 9.4453125 C 17.386656 9.2897454 17.304902 9.13398 17.214844 8.9785156 C 17.139251 8.8480215 17.059507 8.7257123 16.982422 8.5976562 z M 12 9 C 10.346 9 9 10.346 9 12 C 9 13.654 10.346 15 12 15 C 13.654 15 15 13.654 15 12 C 15 10.346 13.654 9 12 9 z M 4.4335938 9.4746094 C 4.6534868 10.294933 4.9367116 11.138435 5.2910156 11.998047 C 4.9361638 12.858395 4.6518611 13.702404 4.4316406 14.523438 C 3.6265076 14.13386 2.9942548 13.693935 2.5957031 13.265625 C 2.1628391 12.800441 2 12.393114 2 12 C 2 11.606886 2.1628391 11.199559 2.5957031 10.734375 C 2.9946507 10.30564 3.6272996 9.8644694 4.4335938 9.4746094 z M 19.568359 9.4765625 C 20.373493 9.86614 21.005745 10.306065 21.404297 10.734375 C 21.837161 11.199559 22 11.606886 22 12 C 22 12.393114 21.837161 12.800441 21.404297 13.265625 C 21.005481 13.694218 20.372314 14.133671 19.566406 14.523438 C 19.346408 13.70331 19.063302 12.859359 18.708984 12 C 19.063528 11.140213 19.348278 10.297076 19.568359 9.4765625 z M 6.5273438 14.554688 C 6.6134624 14.710479 6.6949687 14.865796 6.7851562 15.021484 C 6.8605788 15.151684 6.9406705 15.274571 7.0175781 15.402344 C 6.7876543 15.345589 6.5457628 15.296147 6.328125 15.232422 C 6.38474 15.011907 6.4589246 14.781975 6.5273438 14.554688 z M 17.472656 14.554688 C 17.541008 14.781756 17.615303 15.012111 17.671875 15.232422 C 17.454093 15.296189 17.212505 15.347509 16.982422 15.404297 C 17.059629 15.27606 17.139132 15.152167 17.214844 15.021484 C 17.305039 14.865801 17.386529 14.710474 17.472656 14.554688 z M 5.9511719 17.212891 C 6.7874339 17.449167 7.6806544 17.639829 8.6269531 17.771484 C 9.2189246 18.539829 9.8333748 19.234735 10.460938 19.855469 C 9.6630912 20.418687 8.9102701 20.779373 8.3007812 20.921875 C 7.6736927 21.068493 7.2372042 21.007944 6.8964844 20.810547 C 6.5557646 20.61315 6.2843278 20.263425 6.0996094 19.646484 C 5.9181204 19.040332 5.8549563 18.198912 5.9511719 17.212891 z M 18.048828 17.212891 C 18.144992 18.198917 18.081909 19.042294 17.900391 19.648438 C 17.71564 20.265369 17.444246 20.613168 17.103516 20.810547 C 16.762786 21.007926 16.3263 21.068525 15.699219 20.921875 C 15.089362 20.779253 14.335475 20.419332 13.537109 19.855469 C 14.165045 19.234526 14.780726 18.5402 15.373047 17.771484 C 16.319346 17.639829 17.212566 17.449167 18.048828 17.212891 z M 11.464844 17.988281 C 11.643543 17.991983 11.819299 18 12 18 C 12.180701 18 12.356457 17.991983 12.535156 17.988281 C 12.356556 18.177926 12.178609 18.373537 12 18.546875 C 11.8214 18.373528 11.643434 18.177935 11.464844 17.988281 z">
+                              </path>
+                            </svg>
+                            <span>React</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M21.084 2.914c-1.178-1.179-3.234-1.179-4.412 0l-8.379 8.379a.999.999 0 0 0 0 1.414l3 3a.997.997 0 0 0 1.414 0l8.379-8.379a3.123 3.123 0 0 0-.002-4.414zm-1.412 3L12 13.586 10.414 12l7.672-7.672a1.146 1.146 0 0 1 1.586.002 1.123 1.123 0 0 1 0 1.584zM8 15c-1.265-.634-3.5 0-3.5 2 0 1.197.5 2-1.5 3 0 0 3.25 2.25 5.5 0 1.274-1.274 1.494-4-.5-5z">
+                              </path>
+                            </svg>
+                            </svg>
+                            </svg>Digital art</span>
+                          </div>
+                          <div class="flex flex-col items-center mx-2 my-1 hover:scale-125 ease-in duration-300 ">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9" viewBox="0 0 24 24"
+                              fill="currentColor">
+                              <path
+                                d="M6 3h3v2H6zm2 16h3v2H8zm8-16h3v2h-2zm-3 16h3v2h-3zm7-8V9h-2V7h-2V5h-2v2h-4V5H8v2H6v2H4v2h3v8h3v-4h3v4h3v-3h8v3h3v-4h3v4h3v-8zm-10 1H8V9h3zm6 0h-2V9h3z">
+                              </path>
+                            </svg>
+                            </svg>Pixel art</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-row text-zinc-50 text-xl font-medium">
+                <div
+                  class="flex flex-row w-1/3 justify-center py-2 px-4 my-1 mx-1 outline outline-2 outline-offset-0 outline-black rounded-bl-xl bg-fuchsia-800">
+                  <a href="https://time.is/GMT+7" id="time_is_link" rel="nofollow" style="text-lg"> GMT+7:</a>
+                  <span id="_zU420" style="text-lg"></span>
+                  <script src="//widget.time.is/en_gb.js"></script>
+                  <script>
+                    time_is_widget.init({
+                      _zU420: {
+                        id: "GMT+7_zU420",
+                        template: "TIME DATE",
+                        date_format: "year-monthnum-daynum"
+                      }
+                    });
+                  </script>
+                </div>
+                <div
+                  class="w-2/3 items-start py-2 px-4 my-1 mx-1 outline outline-2 outline-offset-0 outline-black rounded-br-xl  bg-fuchsia-800">
+                  <span>Always active in early morning!</span>
+                </div>
+              </div>
+            </div>
+            <div class="flex flex-col w-screen justify-evenly items-center py-16">
+              <h2 class="text-3xl font-bold py-6">BYI & DNI</h2>
+              <div class="flex flex-row w-2/3 justify-evenly items-center">
+                <div
+                  class="flex w-5/12 justify-center items-center rounded-md outline outline-offset-1 outline-3 flex-col py-6 px-5">
+                  <h3 class="font-bold text-2xl text-center py-2">Before You Interact</h3>
+                  <ul class="list-disc px-5">
+                    <li class="text-base font-bold py-1">I'm not good at English so sometime I may use wrong and weird
+                      word; ;</li>
+                    <li class="text-base font-bold py-1">I respond chat slowly so don't flooding or spam</li>
+                    <li class="text-base font-bold py-1">I have a little social anxiety?</li>
+                    <li class="text-base font-bold py-1">what should I write next? I'll add more if I know what to write
+                    </li>
+                    <li class="text-base font-bold py-1">Coming soon...</li>
+                  </ul>
+                  <img src="blushing1.png" alt="good" class="w-1/2 pt-5">
+                </div>
+                <div
+                  class="flex w-5/12 justify-center items-center rounded-md outline outline-offset-1 outline-3 flex-col py-6 px-5">
+                  <h3 class="font-bold text-2xl text-center py-2">Do not Interact if..</h3>
+                  <ul class="list-disc px-5">
+                    <li class="text-base font-bold py-1">LGBTQphobic,Sexist,Racist</li>
+                    <li class="text-base font-bold py-1">if you are come from Poketwo Server don't ask about the game
+                      update ,pokemon free and bla bla I'm just art contributor.
+
+                    </li>
+                    <li class="text-base font-bold py-1">idk</li>
+                    <li class="text-base font-bold py-1">idk</li>
+                    <li class="text-base font-bold py-1">Coming soon...</li>
+                  </ul>
+                  <img src="idk.png" alt="good" class="w-1/2 pt-5">
+                </div>
+
+              </div>
+
+            </div>
+            <div class="flex flex-col w-screen justify-between items-center py-16">
+              <h2 class="text-3xl font-bold py-6">Fandom list</h2>
+              <div
+                class="flex flex-row w-3/4  justify-evenly items-center rounded-md outline outline-offset-1 outline-3 py-6 px-5 bg-zinc-50 overflow-y-auto">
+                <div id="accordion-collapse" data-accordion="collapse"
+                  class="flex flex-col max-w-2/7 bg-white p-16 rounded">
+                  <h2 id="accordion-collapse-heading-1">
+                    <button type="button"
+                      class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-2/7 font-medium text-left border border-gray-200 dark:border-gray-700 border-b-0 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-t-xl"
+                      data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
+                      aria-controls="accordion-collapse-body-1">
+                      <span>Typical Colors 2</span>
+                      <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                  </h2>
+                  <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-1" class="w-2/7">
+                    <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 border-b-0 w-2/7">
+                      <img src="Annirender.png" alt="anni" class="w-1/4">
+                    </div>
+                  </div>
+                </div>
+                <div id="accordion-collapse" data-accordion="collapse"
+                  class="flex flex-col max-w-2/7 bg-white p-16 rounded">
+                  <h2 id="accordion-collapse-heading-2">
+                    <button type="button"
+                      class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-2/7 font-medium text-left border border-gray-200 dark:border-gray-700 border-b-0 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-t-xl"
+                      data-accordion-target="#accordion-collapse-body-2" aria-expanded="true"
+                      aria-controls="accordion-collapse-body-2">
+                      <span>Typical Colors 2</span>
+                      <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                  </h2>
+                  <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-2" class="w-2/7">
+                    <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 border-b-0 w-2/7">
+                      <img src="Annirender.png" alt="anni" class="w-1/4">
+                    </div>
+                  </div>
+                </div>
+                <div id="accordion-collapse" data-accordion="collapse"
+                  class="flex flex-col max-w-2/7 bg-white p-16 rounded">
+                  <h2 id="accordion-collapse-heading-1">
+                    <button type="button"
+                      class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-2/7 font-medium text-left border border-gray-200 dark:border-gray-700 border-b-0 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-t-xl"
+                      data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
+                      aria-controls="accordion-collapse-body-1">
+                      <span>Typical Colors 2</span>
+                      <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
+                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                          clip-rule="evenodd"></path>
+                      </svg>
+                    </button>
+                  </h2>
+                  <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-1" class="w-2/7">
+                    <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 border-b-0 w-2/7">
+                      <img src="Annirender.png" alt="anni" class="w-1/4">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+      </div>
+    </div>
+
+
+    </main>
+
+  </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.1/alpine.js"></script>
+  <script>
+    const setup = () => {
+      return {
+        isSidebarOpen: false,
+      }
+    }
+  </script>
+  <script src="https://unpkg.com/@themesberg/flowbite@latest/dist/flowbite.bundle.js"></script>
+  <script src="https://unpkg.com/flowbite@1.3.3/dist/flowbite.js"></script>
+
+</body>
+
+</html>
