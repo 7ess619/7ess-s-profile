@@ -44,7 +44,7 @@
 
           <div class="flex flex-col flex-1 mt-5" aria-labelledby="accordion-example-heading-2">
             <nav class="flex-1 px-2 pb-4 space-y-1">
-              <a href="home.html"
+              <a href="index.html"
                 class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                   <path
@@ -344,73 +344,86 @@
             </div>
 
             <div class="flex flex-col w-screen justify-between items-center py-16">
-              <h2 class="text-3xl font-bold py-6">Fandom list</h2>
+              <div class=" flex flex-col justify-between items-center py-6 font-bold">
+              <h2 class="text-3xl ">Fandom list</h2>
+              <span>with my favourite character</span>
+              </div>
               <div
-                class="flex flex-row w-3/4  justify-evenly items-center rounded-md outline outline-offset-1 outline-3 py-6 px-5 bg-zinc-50 overflow-y-auto">
-                <div id="accordion-collapse" data-accordion="collapse"
-                  class="flex flex-col max-w-2/7 bg-white p-16 rounded">
-                  <h2 id="accordion-collapse-heading-1">
-                    <button type="button"
-                      class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-2/7 font-medium text-left border border-gray-200 dark:border-gray-700 border-b-0 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-t-xl"
-                      data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                      aria-controls="accordion-collapse-body-1">
-                      <span>Typical Colors 2</span>
-                      <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                    </button>
-                  </h2>
-                  <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-1" class="w-2/7">
-                    <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 border-b-0 w-2/7">
-                      <img src="Annirender.png" alt="anni" class="w-1/4">
-                    </div>
+                class="flex flex-row w-3/4  justify-evenly items-start rounded-md outline outline-offset-1 outline-3 py-6 px-5 bg-zinc-50 max-h-96 overflow-y-auto">
+                <div class="grid grid-cols-3 gap-4 grid-rows-4" id="container"> 
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300" onmouseover="playSound(this, 'https://static.wikia.nocookie.net/tc2/images/0/05/Anni_battle_cry2.ogg/revision/latest?cb=20211218010807');">
+                    <img src="Annirender.png" alt="anni" class="w-1/2 rounded-md ">
+                    <h1>Typical Colors 2</h1>
+                    <span>Annihilator</span>
                   </div>
-                </div>
-                <div id="accordion-collapse" data-accordion="collapse"
-                  class="flex flex-col max-w-2/7 bg-white p-16 rounded">
-                  <h2 id="accordion-collapse-heading-2">
-                    <button type="button"
-                      class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-2/7 font-medium text-left border border-gray-200 dark:border-gray-700 border-b-0 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-t-xl"
-                      data-accordion-target="#accordion-collapse-body-2" aria-expanded="true"
-                      aria-controls="accordion-collapse-body-2">
-                      <span>Typical Colors 2</span>
-                      <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                    </button>
-                  </h2>
-                  <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-2" class="w-2/7">
-                    <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 border-b-0 w-2/7">
-                      <img src="Annirender.png" alt="anni" class="w-1/4">
-                    </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="Cyn.png" alt="cutie" class="w-1/2 rounded-md">
+                    <h1>Pokemon</h1>
+                    <span>Cynthia</span>
                   </div>
-                </div>
-                <div id="accordion-collapse" data-accordion="collapse"
-                  class="flex flex-col max-w-2/7 bg-white p-16 rounded">
-                  <h2 id="accordion-collapse-heading-1">
-                    <button type="button"
-                      class="flex items-center focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 justify-between p-5 w-2/7 font-medium text-left border border-gray-200 dark:border-gray-700 border-b-0 text-gray-900 dark:text-white bg-gray-100 dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-t-xl"
-                      data-accordion-target="#accordion-collapse-body-1" aria-expanded="true"
-                      aria-controls="accordion-collapse-body-1">
-                      <span>Typical Colors 2</span>
-                      <svg data-accordion-icon class="w-6 h-6 shrink-0 rotate-180" fill="currentColor"
-                        viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                        <path fill-rule="evenodd"
-                          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                          clip-rule="evenodd"></path>
-                      </svg>
-                    </button>
-                  </h2>
-                  <div id="accordion-collapse-body-2" aria-labelledby="accordion-collapse-heading-1" class="w-2/7">
-                    <div class="p-5 border border-gray-200 dark:border-gray-700 dark:bg-gray-900 border-b-0 w-2/7">
-                      <img src="Annirender.png" alt="anni" class="w-1/4">
-                    </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="cannot.png" alt="hot" class="w-1/2 rounded-md">
+                    <h1>Arknight</h1>
+                    <span>Cannot Goodenoug</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="jake.png" alt="jake" class="w-1/2 rounded-md">
+                    <h1>Adventure Time</h1>
+                    <span>Jake the dog</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="djss.png" alt="ss" class="w-1/2 rounded-md">
+                    <h1>No Straight Road</h1>
+                    <span>DJ SUbatomic Supernova</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="Ranger.png" alt="ranger" class="w-1/2 rounded-md">
+                    <h1>Tower Defense Simulator</h1>
+                    <span>Ranger</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="demo.png" alt="demo" class="w-1/2 rounded-md">
+                    <h1>Team Fortress 2</h1>
+                    <span>Demoman</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="Mad.png" alt="mad" class="w-1/2 rounded-md">
+                    <h1>Cookie run</h1>
+                    <span>Madeleine cookie</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="Biwa.png" alt="bi" class="w-1/2 rounded-md">
+                    <h1>Uma masume</h1>
+                    <span>Madeleine cookie</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="mer.png" alt="M" class="w-1/2 rounded-md">
+                    <h1>gundam the witch from mercury</h1>
+                    <span>Mrs.Mercury</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="Lapis.png" alt="lapis" class="w-1/2 rounded-md">
+                    <h1>Steven Universe</h1>
+                    <span>Lapis Lazuli</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="so.png" alt="rabbit" class="w-1/2 rounded-md">
+                    <h1>Azurlane</h1>
+                    <span>Soryuu</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="Dora.png" alt="kid" class="w-1/2 rounded-md">
+                    <h1>Doraemon and friends</h1>
+                    <span>Dora the kid</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 hover:rotate-3  ease-in duration-300">
+                    <img src="gun.png" alt="king" class="w-1/2 rounded-md">
+                    <h1>Daganronpa</h1>
+                    <span>Tanaka Gundham</span>
+                  </div>
+                  <div class="flex flex-col text-center font-bold justify-evenly items-center box hover:scale-110 outline outline-3 rounded-md ease-in duration-300">
+                    <h1>Coming soon</h1>
+                    <span>....</span>
                   </div>
                 </div>
               </div>
@@ -445,13 +458,35 @@
         day: "numeric",
         hour: "2-digit",
         minute: "2-digit",
-        second: "2-digit",
         timeZone: "Asia/Bangkok"
       };
       var time = date.toLocaleTimeString("en-us", options);
       document.getElementById("time").innerHTML = time;
     }, 1000);
   </script>
+<script>
+var $divs = $("div.box");
+
+$('#alphBnt').on('click', function () {
+    var alphabeticallyOrderedDivs = $divs.sort(function (a, b) {
+        return $(a).find("h1").text() > $(b).find("h1").text();
+    });
+    $("#container").html(alphabeticallyOrderedDivs);
+});
+
+</script>
+
+<script type="text/javascript">
+  function playSound(el,soundfile) {
+      if (el.mp3) {
+          if(el.mp3.paused) el.mp3.play();
+          else el.mp3.pause();
+      } else {
+          el.mp3 = new Audio(soundfile);
+          el.mp3.play();
+      }
+  }
+</script>
 
 </body>
 
