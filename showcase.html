@@ -12,112 +12,111 @@
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap"
     rel="stylesheet">
   <title>Document</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </head>
 
 <body>
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
     <div class="flex h-screen antialiased text-gray-900 bg-amber-200 dark:bg-dark dark:text-light">
       <!-- Loading screen -->
-      <div
-        x-ref="loading"
-        class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-blue-600"
-      >
+      <div x-ref="loading"
+        class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-blue-600">
         Loading.....
-      </div>  
+      </div>
 
-    <!-- Static sidebar for desktop -->
-    <div 
-    x-transition:enter="transform transition-transform duration-500" 
-    x-transition:enter-start="-translate-x-full"
-      x-transition:enter-end="translate-x-0" 
-      x-transition:leave="transform transition-transform duration-500"
-      x-transition:leave-start="translate-x-0" 
-      x-transition:leave-end="-translate-x-full" 
-      x-show="isSidebarOpen"
-      class="fixed inset-y-0 z-10 overflow-hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col ">
-      <div class="z-10 flex flex-col flex-grow pt-5 overflow-y-auto bg-purple-900">
-        <!-- close sidebar for desktop -->
-        <div class="flex items-center justify-end flex-shrink-0 px-4">
-          <button @click="isSidebarOpen = false" class="p-1 rounded-lg focus:outline-none focus:ring ">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-white"
-              aria-hidden="true">
-              <path fill-rule="evenodd"
-                d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
-                clip-rule="evenodd" />
-            </svg>
-            <span class="sr-only">Close sidebar</span>
-        </div>
-
-        <div class="flex flex-col flex-1 mt-5" aria-labelledby="accordion-example-heading-2">
-          <nav class="flex-1 px-2 pb-4 space-y-1">
-            <a href="index.html"
-              class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
-                <path
-                  d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
-              </svg>
-              Home
-            </a>
-
-            <a href="about.html"
-              class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+      <!-- Static sidebar for desktop -->
+      <div x-transition:enter="transform transition-transform duration-500" x-transition:enter-start="-translate-x-full"
+        x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-500"
+        x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen"
+        class="fixed inset-y-0 z-10 overflow-hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col ">
+        <div class="z-10 flex flex-col flex-grow pt-5 overflow-y-auto bg-purple-900">
+          <!-- close sidebar for desktop -->
+          <div class="flex items-center justify-end flex-shrink-0 px-4">
+            <button @click="isSidebarOpen = false" class="p-1 rounded-lg focus:outline-none focus:ring ">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6 fill-white"
+                aria-hidden="true">
                 <path fill-rule="evenodd"
-                  d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                  d="M5.47 5.47a.75.75 0 011.06 0L12 10.94l5.47-5.47a.75.75 0 111.06 1.06L13.06 12l5.47 5.47a.75.75 0 11-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 01-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 010-1.06z"
                   clip-rule="evenodd" />
               </svg>
-              About Me
-            </a>
+              <span class="sr-only">Close sidebar</span>
+          </div>
 
-            <a href="oc.html"
-              class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
-              </svg>
-              Original Character
-            </a>
+          <div class="flex flex-col flex-1 mt-5" aria-labelledby="accordion-example-heading-2">
+            <nav class="flex-1 px-2 pb-4 space-y-1">
+              <a href="index.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M11.47 3.84a.75.75 0 011.06 0l8.69 8.69a.75.75 0 101.06-1.06l-8.689-8.69a2.25 2.25 0 00-3.182 0l-8.69 8.69a.75.75 0 001.061 1.06l8.69-8.69z" />
+                  <path
+                    d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
+                </svg>
+                Home
+              </a>
 
-            <a href="showcase.html"
-              class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" />
-                <path fill-rule="evenodd"
-                  d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.913 9H3.087zm6.163 3.75A.75.75 0 0110 12h4a.75.75 0 010 1.5h-4a.75.75 0 01-.75-.75z"
-                  clip-rule="evenodd" />
-              </svg>
-              Showcase Work
-            </a>
+              <a href="about.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path fill-rule="evenodd"
+                    d="M7.5 6a4.5 4.5 0 119 0 4.5 4.5 0 01-9 0zM3.751 20.105a8.25 8.25 0 0116.498 0 .75.75 0 01-.437.695A18.683 18.683 0 0112 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 01-.437-.695z"
+                    clip-rule="evenodd" />
+                </svg>
+                About Me
+              </a>
 
-            <a href="https://7esscms.carrd.co/"
-              class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path
-                  d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-              </svg>
-              Commissions
-            </a>
+              <a href="oc.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M4.5 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM14.25 8.625a3.375 3.375 0 116.75 0 3.375 3.375 0 01-6.75 0zM1.5 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM17.25 19.128l-.001.144a2.25 2.25 0 01-.233.96 10.088 10.088 0 005.06-1.01.75.75 0 00.42-.643 4.875 4.875 0 00-6.957-4.611 8.586 8.586 0 011.71 5.157v.003z" />
+                </svg>
+                Original Character
+              </a>
 
-            <a href="#"
-              class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
-                <path fill-rule="evenodd"
-                  d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z"
-                  clip-rule="evenodd" />
-              </svg>
-              Contact
-            </a>
-          </nav>
+              <a href="showcase.html"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M3.375 3C2.339 3 1.5 3.84 1.5 4.875v.75c0 1.036.84 1.875 1.875 1.875h17.25c1.035 0 1.875-.84 1.875-1.875v-.75C22.5 3.839 21.66 3 20.625 3H3.375z" />
+                  <path fill-rule="evenodd"
+                    d="M3.087 9l.54 9.176A3 3 0 006.62 21h10.757a3 3 0 002.995-2.824L20.913 9H3.087zm6.163 3.75A.75.75 0 0110 12h4a.75.75 0 010 1.5h-4a.75.75 0 01-.75-.75z"
+                    clip-rule="evenodd" />
+                </svg>
+                Showcase Work
+              </a>
+
+              <a href="https://7esscms.carrd.co/"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path
+                    d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
+                </svg>
+                Commissions
+              </a>
+
+              <a href="#"
+                class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path fill-rule="evenodd"
+                    d="M6.912 3a3 3 0 00-2.868 2.118l-2.411 7.838a3 3 0 00-.133.882V18a3 3 0 003 3h15a3 3 0 003-3v-4.162c0-.299-.045-.596-.133-.882l-2.412-7.838A3 3 0 0017.088 3H6.912zm13.823 9.75l-2.213-7.191A1.5 1.5 0 0017.088 4.5H6.912a1.5 1.5 0 00-1.434 1.059L3.265 12.75H6.11a3 3 0 012.684 1.658l.256.513a1.5 1.5 0 001.342.829h3.218a1.5 1.5 0 001.342-.83l.256-.512a3 3 0 012.684-1.658h2.844z"
+                    clip-rule="evenodd" />
+                </svg>
+                Contact
+              </a>
+            </nav>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="flex flex-col flex-1">
+      <div class="flex flex-col flex-1">
         <main>
-          <button @click="isSidebarOpen = true" class="fixed p-2 text-white bg-purple-900 rounded-lg hover:bg-rose-400 top-5 left-5">
-            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <button @click="isSidebarOpen = true"
+            class="fixed p-2 text-white bg-purple-900 rounded-lg hover:bg-rose-400 top-5 left-5">
+            <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
             <span class="sr-only">Open menu</span>
@@ -126,58 +125,36 @@
           <div class="flex flex-col w-screen justify-center items-center mt-16 mb-6">
             <span class="text-4xl font-bold">Showcase work</span>
             <div class="flex flex-col my-5 w-4/5">
-              <div id="carouselExampleCaptions" class="carousel slide relative w-full" data-bs-ride="carousel">
+
+              <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
                 <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="0"
-                    class="active"
-                    aria-current="true"
-                    aria-label="Slide 1"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="1"
-                    aria-label="Slide 2"
-                  ></button>
-                  <button
-                    type="button"
-                    data-bs-target="#carouselExampleCaptions"
-                    data-bs-slide-to="2"
-                    aria-label="Slide 3"
-                  ></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
                 </div>
                 <div class="carousel-inner relative w-full overflow-hidden">
                   <div class="carousel-item active relative float-left w-full">
-                    <img
-                      src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg"
-                      class="block w-full"
-                      alt="..."
-                    />
+                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(15).jpg" class="block w-full"
+                      alt="..." />
                     <div class="carousel-caption hidden md:block absolute text-center">
                       <h5 class="text-xl">First slide label</h5>
                       <p>Some representative placeholder content for the first slide.</p>
                     </div>
                   </div>
                   <div class="carousel-item relative float-left w-full">
-                    <img
-                      src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg"
-                      class="block w-full"
-                      alt="..."
-                    />
+                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(22).jpg" class="block w-full"
+                      alt="..." />
                     <div class="carousel-caption hidden md:block absolute text-center">
                       <h5 class="text-xl">Second slide label</h5>
                       <p>Some representative placeholder content for the second slide.</p>
                     </div>
                   </div>
                   <div class="carousel-item relative float-left w-full">
-                    <img
-                      src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg"
-                      class="block w-full"
-                      alt="..."
-                    />
+                    <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(23).jpg" class="block w-full"
+                      alt="..." />
                     <div class="carousel-caption hidden md:block absolute text-center">
                       <h5 class="text-xl">Third slide label</h5>
                       <p>Some representative placeholder content for the third slide.</p>
@@ -186,30 +163,24 @@
                 </div>
                 <button
                   class="carousel-control-prev absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline left-0"
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide="prev"
-                >
+                  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
                   <span class="carousel-control-prev-icon inline-block bg-no-repeat" aria-hidden="true"></span>
                   <span class="visually-hidden">Previous</span>
                 </button>
                 <button
                   class="carousel-control-next absolute top-0 bottom-0 flex items-center justify-center p-0 text-center border-0 hover:outline-none hover:no-underline focus:outline-none focus:no-underline right-0"
-                  type="button"
-                  data-bs-target="#carouselExampleCaptions"
-                  data-bs-slide="next"
-                >
+                  type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
                   <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
               </div>
             </div>
-            </div>
+          </div>
         </main>
-  
+
       </div>
     </div>
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.1/alpine.js"></script>
     <script>
       const setup = () => {
@@ -218,6 +189,7 @@
         }
       }
     </script>
-  
+
 </body>
+
 </html>
