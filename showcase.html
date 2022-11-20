@@ -18,9 +18,9 @@
   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </head>
 
-<body>
+<body class="overflow-x-hidden">
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
-    <div class="flex h-screen antialiased text-gray-900 bg-amber-200 dark:bg-dark dark:text-light">
+    <div class="flex antialiased text-gray-900 bg-amber-200 dark:bg-dark dark:text-light">
       <!-- Loading screen -->
       <div x-ref="loading"
         class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-blue-600">
@@ -124,9 +124,10 @@
 
           <div class="flex flex-col w-screen justify-center items-center mt-16 mb-6">
             <span class="text-4xl font-bold">Showcase work</span>
-            <div class="flex flex-col my-5 w-4/5">
-
-              <div id="carouselExampleCaptions" class="carousel slide relative" data-bs-ride="carousel">
+            <div class="flex flex-col my-5 w-4/5 justify-center items-center">
+       
+            <span class="text-2xl font-bold">Digital Art</span>
+              <div id="carouselExampleCaptions" class="carousel slide relative my-6" data-bs-ride="carousel">
                 <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -173,6 +174,15 @@
                   <span class="carousel-control-next-icon inline-block bg-no-repeat" aria-hidden="true"></span>
                   <span class="visually-hidden">Next</span>
                 </button>
+              </div>
+            </div>
+            <div class="flex flex-row my-5 w-4/5 justify-center items-center text-center">
+              <div class="flex flex-col w-5/12">
+                <span class="text-xl font-bold">Character Design</span>
+                
+              </div>
+              <div class="flex flex-col w-5/12">
+                <span class="text-xl font-bold">Pixel art</span>
               </div>
             </div>
           </div>
