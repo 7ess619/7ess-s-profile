@@ -121,21 +121,48 @@
 
           <div class="flex flex-col w-screen justify-center items-center mt-16 mb-6">
             <span class="text-4xl font-bold">Main Mascot</span>
-            <div class="flex flex-row justify-center items-center w-4/5 pt-4 py-16 text-xl font-semibold">
-                <div class="flex flex-col w-5/12 items-center content-center text-right">
-                    <img src="m_vic.png" alt="vic" class="w-3/4 justify-center">
+            <div class="flex flex-row justify-center items-center w-4/5 pt-4 max-sm:py-4 sm:py-4 md:py-16 text-xl font-semibold">
+                <div class="flex flex-col w-5/12 items-center content-center  max-sm:text-center sm:text-center md:text-right max-sm:text-base sm:text-base md:text-xl self-start">
+                  <picture class="w-4/5 jusify-center items-center content-center">
+                    <source 
+                      media="(min-width: 640px)"
+                      srcset="m_vic.png"
+                      >
+                    <source 
+                      media="(min-width: 0px)"
+                      srcset="m_vic_max.png"
+                      >
+                    <img 
+                      src="m_vic.png" 
+                      alt="a cute kitten"
+                      >
+                  </picture>
                     <span>Victoria Dreammer</span>
                 </div>
-                <div class="flex flex-col w-5/12 items-center content-center">
-                    <img src="m_omu.png" alt="egg" class="w-3/4 justify-center">
+                <div class="flex flex-col w-5/12 items-center content-center max-sm:text-center sm:text-center md:text-left max-sm:text-base sm:text-base md:text-xl self-start">
+                    <picture class="w-4/5 jusify-center items-center content-center ">
+                      <source 
+                        media="(min-width: 640px)"
+                        srcset="m_omu.png"
+                        >
+                      <source 
+                        media="(min-width: 0px)"
+                        srcset="m_omu_max.png"
+                        >
+                      <img 
+                        src="m_omu.png" 
+                        alt="a cute kitten"
+                        >
+                    </picture>
                     <span>Omurice the dog:3c</span>
+                    
                 </div>
             </div>
         </div>
-        <div class="flex flex-col w-screen justify-between items-center py-10">
+        <div class="flex flex-col w-screen justify-between items-center max-sm:p-0 sm:p-0 md:py-10">
           <div class=" flex flex-col justify-between items-center py-6 font-bold">
-          <h2 class="text-3xl ">Original Character</h2>
-          <span>some of them design by other artist! I'll credit them!!</span>
+          <h2 class="text-3xl max-sm:text-center sm:text-center">Original Character</h2>
+          <span class="max-sm:text-center sm:text-center">some of them design by other artist! I'll credit them!!</span>
           </div>
           <div
             class="flex flex-row w-3/4  justify-evenly items-start rounded-md outline outline-offset-1 outline-3 py-6 px-5 bg-zinc-50 max-h-96 overflow-y-auto">
