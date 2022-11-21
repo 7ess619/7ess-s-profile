@@ -17,7 +17,7 @@
 
 <body>
   <div x-data="setup()" x-init="$refs.loading.classList.add('hidden');">
-    <div class="flex antialiased text-gray-900 bg-amber-200 dark:bg-dark dark:text-light">
+    <div class="flex antialiased text-gray-900 bg-amber-200  dark:bg-dark dark:text-light">
       <!-- Loading screen -->
       <div x-ref="loading"
         class="fixed inset-0 z-50 flex items-center justify-center text-2xl font-semibold text-white bg-blue-600">
@@ -86,7 +86,7 @@
                 Showcase Work
               </a>
 
-              <a href="https://7esscms.carrd.co/"
+              <a href="https://7esscms.carrd.co/" target="_blank"
                 class="flex items-center px-2 py-2 text-sm font-medium text-yellow-100 rounded-md hover:bg-rose-400 group ease-in duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
                   <path
@@ -121,56 +121,56 @@
           </button>
 
           <div class="flex flex-col w-screen justify-center items-center mt-16 mb-8">
-            <div class="flex max-sm:flex-col-reverse sm:flex-col-reverse md:flex-col max-sm:w-4/5 sm:w-4/5 md:w-3/4 pt-8 py-16">
-              <div class="flex max-sm:flex-col sm:flex-col md:flex-row items-center w-full bg-rose-400">
+            <div class="flex max-sm:flex-col sm:flex-col md:flex-col max-sm:w-4/5 sm:w-4/5 md:w-3/4 pt-8 py-16">
+              <div class="flex max-sm:flex-col sm:flex-col md:flex-row items-center w-full bg-rose-400 rounded-md">
                 <div class="max-sm:w-4/5 sm:w-4/5 md:w-1/3 bg-none sm:h-auto md:h-38 shrink-0 justify-center items-center">
                 <img src="IMG20220211162236.png" alt="gato"
-                  class="rounded-xl object-fill w-auto">
+                  class="rounded-xl max-sm:w-auto sm:w-auto  md:w-4/5 md:m-auto">
                 </div>
                 <div class="max-sm:w-4/5 sm:w-4/5 md:w-2/3 max-h-fit py-[3.25rem] rounded-tr-xl">
                   <div class="flex items-center justify-center content-center shrink">
                     <div
-                      class="flex flex-col w-4/5 items-center content-center bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 py-3 justify-center">
+                      class="flex flex-col max-sm:w-full sm:w-full md:w-4/5 items-center content-center bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 py-3 justify-center">
                       <h3 class="font-bold text-xl">About Me!</h3>
                       <div class="flex flex-col w-full my-1 ">
                         <div class="flex flex-col divide-y-1">
                           <div class="flex max-sm:flex-col sm:flex-col md:flex-row text-lg md:justify-evenly">
                             <div
-                              class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:justify-evenly sm:w-full md:flex-row md:w-5/12">
-                              <span class="text-left max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-semibold">Name</span>
-                              <span class="text-right max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-normal">Meow / Jess</span>
+                              class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:justify-evenly sm:w-full md:flex-row md:w-5/12 ">
+                              <span class="text-left max-sm:w-1/3 sm:w-1/3 md:w-1/2 font-semibold">Name</span>
+                              <span class="text-right max-sm:w-2/3 sm:w-5/12 md:w-1/2 font-normal">Meow / Jess</span>
                             </div>
                             <div
                               class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:w-full md:flex-row md:w-5/12">
-                              <span class="text-left max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-semibold">Penname</span>
-                              <span class="text-right max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-normal">7ess</span>
+                              <span class="text-left max-sm:w-1/3 sm:w-1/3 md:w-1/2 font-semibold">Penname</span>
+                              <span class="text-right max-sm:w-2/3 sm:w-2/3 md:w-1/2 font-normal">7ess</span>
                             </div>
                           </div>
                           <div class="flex max-sm:flex-col sm:flex-col md:flex-row text-lg md:justify-evenly">
                             <div
                               class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:w-full md:flex-row md:w-5/12">
-                              <span class="text-left max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-semibold">Age</span>
-                              <span class="text-right max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-normal">19</span>
+                              <span class="text-left max-sm:w-1/3 sm:w-1/3 md:w-1/2 font-semibold">Age</span>
+                              <span class="text-right max-sm:w-2/3 sm:w-2/3 md:w-1/2 font-normal">19</span>
                             </div>
                             <div
                               class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:w-full md:flex-row md:w-5/12">
-                              <span class="text-left max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-semibold">B.O.D.</span>
-                              <span class="text-right max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-normal">23 April 2003
+                              <span class="text-left max-sm:w-1/3 sm:w-1/3 md:w-1/2 font-semibold">B.O.D.</span>
+                              <span class="text-right max-sm:w-2/3 sm:w-2/3 md:w-1/2 font-normal">23 April 2003
                               </span>
                             </div>
                           </div>
                           <div class="flex max-sm:flex-col sm:flex-col md:flex-row text-lg md:justify-evenly">
                             <div
                               class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:w-full md:flex-row md:w-5/12">
-                              <span class="text-left max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-semibold">Gender</span>
-                              <span class="text-right max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-normal">Female (Bi)</span>
+                              <span class="text-left max-sm:w-1/3 sm:w-1/3 md:w-1/2 font-semibold">Gender</span>
+                              <span class="text-right max-sm:w-2/3 sm:w-2/3 md:w-1/2 font-normal">Female (Bi)</span>
                             </div>
 
                             <div
                               class="flex max-sm:items-between max-sm:justify-evenly max-sm:w-full sm:items-between sm:justify-evenly sm:w-full md:flex-row md:w-5/12">
 
-                              <span class="text-left max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-semibold">Pronouns</span>
-                              <span class="text-right max-sm:w-5/12 sm:w-5/12 md:w-1/2 font-normal">She / They</span>
+                              <span class="text-left max-sm:w-1/3 sm:w-1/3 md:w-1/2 font-semibold">Pronouns</span>
+                              <span class="text-right max-sm:w-2/3 sm:w-2/3 md:w-1/2 font-normal">She / They</span>
                             </div>
                           </div>
 
@@ -181,7 +181,7 @@
                   </div>
                   <div>
                     <div Class="flex flex-col w-scren text-center content-center jusify-center items-center">
-                      <div class=" flex flex-col w-4/5">
+                      <div class=" flex flex-col max-sm:w-full sm:w-full md:w-4/5">
                         <h3 class="font-bold text-xl my-2">Hobby</h3>
                         <div
                           class=" flex flex-row overflow-x-auto bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 justify-center overflow-y-hidden">
@@ -235,7 +235,7 @@
                           </div>
                         </div>
                       </div>
-                      <div class=" flex flex-col w-4/5">
+                      <div class=" flex flex-col max-sm:w-full sm:w-full md:w-4/5">
                         <h3 class="font-bold text-xl my-2">Skills</h3>
                         <div
                           class=" flex flex-row overflow-x-auto bg-zinc-50 rounded-md outline outline-offset-1 outline-3 px-2 justify-center overflow-y-hidden">
@@ -305,13 +305,13 @@
                 </div>
               </div>
               <div
-                class="flex max-sm:flex-col sm:flex-col md:flex-row text-zinc-50 text-xl max-sm:text-center  sm:text-center font-medium max-sm:items-center sm:items-center ">
+                class="flex max-sm:flex-col sm:flex-col md:flex-col lg:flex-row text-zinc-50 text-xl max-sm:text-center  sm:text-center font-medium max-sm:items-center sm:items-center ">
                 <div
-                  class="flex flex-row  max-sm:w-4/5 sm:w-4/5 md:w-1/3 justify-center py-2 px-4 sm:m-0 md:m-1 sm:outline-none md:outline md:outline-2 md:outline-offset-0 md:outline-black md:rounded-bl-xl bg-fuchsia-800">
-                  <p class="text-lg" id="time"></p>
+                  class="flex flex-row  max-sm:w-full sm:w-full md:w-full lg:w-1/3  justify-center py-2 px-4 max-sm:m-0 sm:m-0 md-0 lg:m-1 max-sm:outline-none sm:outline-none md:outline-none lg:outline lg:outline-2 lg:outline-offset-0 lg:outline-black lg:rounded-bl-xl bg-fuchsia-800">
+                  <p class="max-sm:text-base sm:text-base md:text-lg" id="time"></p>
                 </div>
                 <div
-                  class="max-sm:w-4/5 sm:w-4/5 md:w-2/3 items-start py-2 px-4 max-sm:m-0 sm:m-0 md:m-1 sm:outline-none md:outline md:outline-2 md:outline-offset-0 md:outline-black md:rounded-br-xl md:text-left bg-fuchsia-800 md">
+                  class="max-sm:w-full sm:w-full md:w-full lg:w-2/3 items-start py-2 px-4 max-sm:m-0 max-sm:m-0 sm:m-0 md-0 lg:m-1 max-sm:jusify-center sm:jusify-center md:jusify-center max-sm:outline-none sm:outline-none md:outline-none lg:outline lg:outline-2 lg:outline-offset-0 lg:outline-black lg:rounded-br-xl max-sm:text-center lg:text-left bg-fuchsia-800 max-sm:text-base sm:text-base md:text-lg">
                   <span>Always active in early morning!</span>
                 </div>
               </div>
