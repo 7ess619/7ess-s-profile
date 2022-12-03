@@ -38,7 +38,7 @@
         x-transition:enter-end="translate-x-0" x-transition:leave="transform transition-transform duration-500"
         x-transition:leave-start="translate-x-0" x-transition:leave-end="-translate-x-full" x-show="isSidebarOpen"
         class="fixed inset-y-0 z-10 overflow-hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col ">
-        <div class="z-10 flex flex-col flex-grow pt-5 overflow-y-auto bg-purple-900">
+        <div class="z-50 flex flex-col flex-grow pt-5 overflow-y-auto bg-purple-900">
           <!-- close sidebar for desktop -->
           <div class="flex items-center justify-end flex-shrink-0 px-4">
             <button @click="isSidebarOpen = false" class="p-1 rounded-lg focus:outline-none focus:ring ">
@@ -119,7 +119,7 @@
       </div>
       <div class="flex flex-col flex-1">
         <main>
-          <button @click="isSidebarOpen = true" class="fixed p-2 text-white bg-purple-900 rounded-lg hover:bg-rose-400 top-5 left-5 flex flx-col">
+          <button @click="isSidebarOpen = true" class="fixed p-2 text-white bg-purple-900 rounded-lg hover:bg-rose-400 top-5 left-5 flex flx-col ">
             <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -127,12 +127,12 @@
             <span class="text-base font-semibold mx-3">Open Menu</span>
           </button>
 
-          <div class="flex flex-col w-screen justify-center items-center mt-16 mb-6">
+          <div class="flex flex-col w-screen justify-center items-center mt-16 mb-6 -z-10">
             <span class="text-4xl font-bold">Showcase work</span>
             <div class="flex flex-col my-5 w-4/5 justify-center items-center">
 
               <span class="text-2xl font-bold">Digital Art</span>
-              <div id="carouselExampleCaptions" class="carousel slide relative my-6" data-bs-ride="carousel">
+              <div id="carouselExampleCaptions" class="carousel slide relative my-6 -z-10" data-bs-ride="carousel">
                 <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                   <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -232,7 +232,7 @@
               </div>
               <div class="flex flex-col max-sm:w-4/5 sm:w-4/5 md:w-5/12 md:self-start">
                 <span class="text-xl font-bold">Pixel art</span>
-                <div id="carouselExampleCaptions2" class="carousel slide relative my-6" data-bs-ride="carousel">
+                <div id="carouselExampleCaptions2" class="carousel slide relative my-6 -z-10" data-bs-ride="carousel">
                   <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                     <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active"
                       aria-current="true" aria-label="Slide 1"></button>
@@ -281,7 +281,7 @@
             <div class="flex flex-col my-5 w-4/5 justify-center items-center">
 
               <span class="text-2xl font-bold">Model</span>
-              <div id="carouselExampleCaptions3" class="carousel slide relative my-6" data-bs-ride="carousel">
+              <div id="carouselExampleCaptions3" class="carousel slide relative my-6 -z-10" data-bs-ride="carousel">
                 <div class="carousel-indicators absolute right-0 bottom-0 left-0 flex justify-center p-0 mb-4">
                   <button type="button" data-bs-target="#carouselExampleCaptions3" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
